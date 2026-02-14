@@ -1,12 +1,35 @@
-This is a React + Vite + TypeScript project with Tailwind CSS pre-configured and ready to use.
+This is a React + Vite + TypeScript project with shadcn/ui (full component library) pre-configured and ready to use.
+
+AVAILABLE UI COMPONENTS (import from @/components/ui/):
+accordion, alert-dialog, avatar, badge, button, card, checkbox, dialog, dropdown-menu,
+input, label, popover, progress, radio-group, scroll-area, select, separator, sheet,
+skeleton, slider, sonner (toaster), switch, tabs, textarea, toast, toggle, tooltip
+
+AVAILABLE LIBRARIES:
+- lucide-react: Icons (e.g., import { Plus, Trash2, Check } from "lucide-react")
+- react-router-dom: Client-side routing
+- react-hook-form + zod + @hookform/resolvers: Form validation
+- @tanstack/react-query: Data fetching and caching
+- recharts: Charts and data visualization
+- sonner: Toast notifications (toast("Success!"))
+- date-fns: Date formatting and manipulation
+- framer-motion is NOT included but can be installed if needed
 
 STYLING:
-- Tailwind CSS is already installed and configured — utility classes work immediately
-- Use Tailwind utility classes for ALL styling (e.g., className="bg-white p-4 rounded-lg shadow")
-- Do NOT create separate CSS files or use inline style={{}} — always use Tailwind classes
-- Follow mobile-first responsive design: sm:, md:, lg: breakpoints
+- Use Tailwind CSS utility classes for all custom styling
+- Use shadcn/ui components for UI elements — do NOT build from scratch what shadcn provides
+- The cn() helper is at @/lib/utils for merging Tailwind classes
+- CSS variables define the theme (--primary, --secondary, --background, etc.)
+- Dark mode is supported via the "class" strategy
+
+PATTERNS:
+- Import components: import { Button } from "@/components/ui/button"
+- Path alias: @/ maps to src/
+- Use sonner for toasts: import { toast } from "sonner"; toast("Done!")
+- For forms: use react-hook-form with zodResolver
 
 COMMANDS — you have full shell access and MUST use it:
-- Run `npm install && npm run dev` to install dependencies and start the dev server
+- Run `npm install && npm run dev` to install and start the dev server
+- You CAN and SHOULD run any shell commands needed
 - NEVER use `vite` directly — always use `npm run dev`
-- You CAN and SHOULD run any shell commands needed (npm install, npm run dev, etc.)
+- To add more shadcn components: npx shadcn@latest add [component-name]

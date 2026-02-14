@@ -1,10 +1,18 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Hello World</h1>
-        <p className="text-lg text-gray-600">React + TypeScript + Vite + Tailwind CSS</p>
-      </div>
+    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <CardTitle className="text-3xl font-bold">Hello World</CardTitle>
+          <CardDescription>React + TypeScript + shadcn/ui</CardDescription>
+        </CardHeader>
+        <CardContent className="flex justify-center">
+          <Button>Get Started</Button>
+        </CardContent>
+      </Card>
     </div>
   );
 }
