@@ -1,11 +1,12 @@
-This is a React + Vite + TypeScript project with Tailwind CSS.
+This is a React + Vite + TypeScript project with Tailwind CSS pre-configured and ready to use.
 
-STYLING RULES:
-- Use Tailwind CSS utility classes for ALL styling
-- Do NOT create custom CSS files — use Tailwind classes inline
-- Follow mobile-first responsive design (sm:, md:, lg: breakpoints)
+STYLING:
+- Tailwind CSS is already installed and configured — utility classes work immediately
+- Use Tailwind utility classes for ALL styling (e.g., className="bg-white p-4 rounded-lg shadow")
+- Do NOT create separate CSS files or use inline style={{}} — always use Tailwind classes
+- Follow mobile-first responsive design: sm:, md:, lg: breakpoints
 
-IMPORTANT:
-- Always run `npm install && npm run dev` to start
-- Use TypeScript for all new files (.tsx, .ts)
-- Never use `vite` directly — always use `npm run dev`
+COMMANDS — you have full shell access and MUST use it:
+- Run `npm install && npm run dev` to install dependencies and start the dev server
+- NEVER use `vite` directly — always use `npm run dev`
+- You CAN and SHOULD run any shell commands needed (npm install, npm run dev, etc.)
