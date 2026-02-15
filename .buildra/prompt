@@ -1,22 +1,24 @@
 This is a React + Vite + TypeScript project with shadcn/ui (full component library) pre-configured and ready to use.
 
-DESIGN SYSTEM WORKFLOW (follow this order):
-1. Think about what the user wants and what design fits it — colors, mood, personality
-2. Update CSS variables in src/index.css with HSL values that match the project:
-   - --primary, --secondary, --accent for brand colors
-   - --background, --foreground for base theme
-   - Add custom tokens: --gradient-primary, --shadow-elegant, etc.
-3. Optionally update tailwind.config.cjs for custom animations, gradients, or shadows
-4. Create shadcn component variants if needed (e.g., premium button, hero card)
-5. THEN build components using semantic tokens — NEVER raw colors
+CRITICAL — DESIGN SYSTEM FIRST:
+Before writing ANY component, you MUST customize the design system. The default theme is NOT acceptable.
+
+1. Think about the project mood: warm, cool, vibrant, playful, professional?
+2. FIRST FILE TO EDIT — src/index.css: Update ALL CSS variables with your chosen HSL palette:
+   --primary, --primary-foreground, --secondary, --accent, --background, --foreground, --card, --muted, --muted-foreground, --border
+3. SECOND (optional) — tailwind.config.cjs: Add custom gradients, shadows, animations
+4. THEN build components using semantic tokens
+
+Example palettes:
+- Todo/productivity: warm orange --primary: 24 80% 50%, cream --background: 30 40% 97%
+- Finance: cool blue --primary: 210 80% 50%, slate --background: 210 20% 97%
+- Health: earthy green --primary: 150 60% 40%, mint --background: 150 30% 97%
 
 SEMANTIC TOKENS — MANDATORY:
-- NEVER use: text-white, bg-white, bg-blue-500, text-gray-700, bg-black, etc.
+- NEVER use: text-white, bg-white, bg-blue-500, text-gray-700, bg-black in components
 - ALWAYS use: text-primary, bg-background, text-foreground, text-muted-foreground, bg-card, bg-accent, border-border
-- Define all custom styles in index.css and tailwind.config.cjs — NOT inline in components
-- Example custom tokens:
-  --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary) / 0.8));
-  --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+- Define custom styles in index.css — NOT inline in components
+- Use cn() from @/lib/utils for conditional classes
 
 AVAILABLE UI COMPONENTS (import from @/components/ui/):
 accordion, alert-dialog, avatar, badge, button, card, checkbox, dialog, dropdown-menu,
@@ -24,32 +26,29 @@ input, label, popover, progress, radio-group, scroll-area, select, separator, sh
 skeleton, slider, sonner (toaster), switch, tabs, textarea, toast, toggle, tooltip
 
 AVAILABLE LIBRARIES:
-- lucide-react: Icons (e.g., import { Plus, Trash2, Check, ListTodo } from "lucide-react")
+- lucide-react: Icons — USE ON EVERY BUTTON AND HEADER (e.g., import { Plus, Trash2, Check, ListTodo, Filter } from "lucide-react")
 - react-router-dom: Client-side routing
 - react-hook-form + zod + @hookform/resolvers: Form validation
 - @tanstack/react-query: Data fetching and caching
 - recharts: Charts and data visualization
 - sonner: Toast notifications (toast("Success!"))
 - date-fns: Date formatting and manipulation
-- framer-motion is NOT included but can be installed if needed
 
 COMPONENT PATTERNS:
-- Import components: import { Button } from "@/components/ui/button"
-- Import icons: import { Plus, Check } from "lucide-react"
+- import { Button } from "@/components/ui/button"
+- import { Plus, Check } from "lucide-react"
 - Path alias: @/ maps to src/
-- Use sonner for toasts: import { toast } from "sonner"; toast("Done!")
-- For forms: use react-hook-form with zodResolver
-- For conditional classes: import { cn } from "@/lib/utils"; cn("base-class", condition && "extra-class")
-- Customize components by adding variants, NOT inline overrides
+- Toasts: import { toast } from "sonner"; toast("Done!")
+- Forms: react-hook-form with zodResolver
+- Conditional classes: cn("base", condition && "extra")
 
-FEATURE COMPLETENESS:
-- For lists: ALWAYS include filters/tabs, item count badge, and empty state message
-- For forms: ALWAYS include validation (zod) and success/error feedback (sonner toast)
-- For dashboards: ALWAYS include stat cards, charts, and activity feeds
-- For all apps: responsive layout, hover/focus states, loading skeletons
+FEATURE COMPLETENESS — ALWAYS INCLUDE:
+- Lists/todos: filter Tabs (All/Active/Completed), count Badge, empty state with icon + message, smooth transitions
+- Forms: validation (zod), success/error toast feedback
+- Dashboards: stat cards with icons, charts, activity feeds
+- ALL apps: lucide-react icons on buttons and headers, responsive layout, hover/focus states, loading skeletons
 
-COMMANDS — you have full shell access and MUST use it:
-- Run `npm install && npm run dev` to install and start the dev server
-- You CAN and SHOULD run any shell commands needed
-- NEVER use `vite` directly — always use `npm run dev`
-- To add more shadcn components: npx shadcn@latest add [component-name]
+COMMANDS:
+- Run `bun install && bun run dev` (preferred) or `npm install && npm run dev`
+- NEVER use `vite` directly — always use `bun run dev` or `npm run dev`
+- To add shadcn components: npx shadcn@latest add [component-name]
