@@ -49,6 +49,6 @@ FEATURE COMPLETENESS — ALWAYS INCLUDE:
 - ALL apps: lucide-react icons on buttons and headers, responsive layout, hover/focus states, loading skeletons
 
 COMMANDS:
-- Run `bun install && bun run dev` (preferred) or `npm install && npm run dev`
-- NEVER use `vite` directly — always use `bun run dev` or `npm run dev`
+- Run `npm install && npm run dev` to install and start the dev server
+- NEVER use `vite` directly — always use `npm run dev`
 - To add shadcn components: npx shadcn@latest add [component-name]
